@@ -60,12 +60,10 @@ catkin_package(INCLUDE_DIRS include)
 
 
   set (HEADER_FILES 
-       ${snake_HEADER_DIR}/mtsFBGInterrogator.h
       ${snake_HEADER_DIR}/mtsTaskTest.h
        )
 
   set (SOURCE_FILES
-       code/mtsFBGInterrogator.cpp
        )
 
   add_library (snake
@@ -78,12 +76,8 @@ set_target_properties(snake PROPERTIES LINKER_LANGUAGE CXX)
 cisst_target_link_libraries (snake ${REQUIRED_CISST_LIBRARIES})
 target_link_libraries(snake Qt5::Widgets ${BIGSS_UTIL_LIB})
 
-
 add_executable(startMaxonWithUI code/main_MaxonMotorWithUI.cpp)
 target_link_libraries(startMaxonWithUI snake ${catkin_LIBRARIES})
-
-add_executable(testFBG code/main_testFBG.cpp)
-target_link_libraries(testFBG snake ${catkin_LIBRARIES})
 
 add_executable(MAINTEST code/main_test.cpp)
 target_link_libraries(MAINTEST snake ${catkin_LIBRARIES})
